@@ -12,6 +12,7 @@ def display_board(board):
     print(spaces,solid,spaces,sep="\n")
     print("|   {}   |   {}   |   {}   |".format(board[2][0],board[2][1],board[2][2]))
     print(spaces,solid,sep="\n")
+    
 def your_move(board):
     move=int(input("Choose your move location: "))
     if move<1 or move>9:
@@ -60,6 +61,10 @@ def victory_for(board):
     if board[2][0]==board[1][2]==board[2][2]:
         display_board(board)
         print(board[2][0]," WINS!")
+        quit()
+    if (''.join(map(str,(sum(board,[]))))).isalpha():
+        display_board(board)
+        print("TIE!")
         quit()
 
 while True:
